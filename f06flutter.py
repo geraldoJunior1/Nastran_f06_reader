@@ -25,7 +25,7 @@ from matplotlib.figure import Figure
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(926, 729)
+        MainWindow.resize(1040, 729)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton_input = QtWidgets.QPushButton(self.centralwidget)
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
         self.textEdit_axismin.setMaximumSize(QtCore.QSize(16777215, 35))
         self.textEdit_axismin.setObjectName("textEdit_axismin")
         self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox.setGeometry(QtCore.QRect(260, 590, 70, 17))
+        self.checkBox.setGeometry(QtCore.QRect(260, 600, 70, 17))
         self.checkBox.setObjectName("checkBox")
         self.textEdit_axismax_2 = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_axismax_2.setGeometry(QtCore.QRect(570, 590, 61, 25))
@@ -107,7 +107,7 @@ class Ui_MainWindow(object):
         self.label_25.setGeometry(QtCore.QRect(30, 660, 91, 16))
         self.label_25.setObjectName("label_25")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(20, 10, 891, 511))
+        self.groupBox.setGeometry(QtCore.QRect(20, 10, 1001, 511))
         self.groupBox.setObjectName("groupBox")
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser.setGeometry(QtCore.QRect(430, 550, 51, 31))
@@ -161,7 +161,7 @@ class Ui_MainWindow(object):
         self.textEdit_axismax_8.setMaximumSize(QtCore.QSize(16777215, 35))
         self.textEdit_axismax_8.setObjectName("textEdit_axismax_8")
         self.checkBox_2 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_2.setGeometry(QtCore.QRect(260, 610, 81, 17))
+        self.checkBox_2.setGeometry(QtCore.QRect(260, 620, 81, 17))
         self.checkBox_2.setObjectName("checkBox_2")
         self.textEdit_45 = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_45.setGeometry(QtCore.QRect(270, 660, 61, 25))
@@ -208,9 +208,16 @@ class Ui_MainWindow(object):
         self.label_28 = QtWidgets.QLabel(self.centralwidget)
         self.label_28.setGeometry(QtCore.QRect(130, 530, 91, 16))
         self.label_28.setObjectName("label_28")
+        self.textEdit_46 = QtWidgets.QTextEdit(self.centralwidget)
+        self.textEdit_46.setGeometry(QtCore.QRect(260, 570, 61, 25))
+        self.textEdit_46.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.textEdit_46.setObjectName("textEdit_46")
+        self.label_29 = QtWidgets.QLabel(self.centralwidget)
+        self.label_29.setGeometry(QtCore.QRect(260, 550, 91, 16))
+        self.label_29.setObjectName("label_29")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 926, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1040, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -220,31 +227,40 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
         self.plotFigLayout = QtWidgets.QVBoxLayout(self.groupBox)
-        self.plot_static_canvas = FigureCanvas(Figure(figsize=(2, 2)))
+        self.plot_static_canvas = FigureCanvas(Figure(figsize=(2, 3)))
         self.plotFigLayout.addWidget(self.plot_static_canvas)
 
         self.vel, self.damp, self.freq = self.extract('1')
 
         self.fig_canvas = self.plot_static_canvas
         self.fig = self.fig_canvas.figure
-        self.pushButton_input.clicked.connect(lambda:self.plot())
-        self.pushButton_ana.clicked.connect(lambda:self.plot())
-        self.pushButton_plot.clicked.connect(lambda:self.plot())
-
-        self.checkBox.stateChanged.connect(lambda:self.plot())
-        self.checkBox.stateChanged.connect(lambda:self.plot())
-
-        self.textEdit_31.textChanged.connect(lambda:self.plot())
-        self.textEdit_41.textChanged.connect(lambda:self.plot())
-        self.textEdit_32.textChanged.connect(lambda:self.plot())
-        self.textEdit_42.textChanged.connect(lambda:self.plot())
-        self.textEdit_34.textChanged.connect(lambda:self.plot())
-        self.textEdit_43.textChanged.connect(lambda:self.plot())
-        self.textEdit_33.textChanged.connect(lambda:self.plot())
-        self.textEdit_44.textChanged.connect(lambda:self.plot())
-
-
+        self.pushButton_input.clicked.connect(lambda:self.plot(0))
+        self.pushButton_ana.clicked.connect(lambda:self.plot(1))
+        self.pushButton_plot.clicked.connect(lambda:self.plot(2))
+        self.legend = 0
+        self.mark = 0
+        self.checkBox.stateChanged.connect(lambda x:self.lig('legend',x))
+        self.checkBox_2.stateChanged.connect(lambda x:self.lig('mark',x))
+        '''
+        self.textEdit_31.textChanged.connect(lambda:self.plot(0))
+        self.textEdit_41.textChanged.connect(lambda:self.plot(0))
+        self.textEdit_32.textChanged.connect(lambda:self.plot(0))
+        self.textEdit_42.textChanged.connect(lambda:self.plot(0))
+        self.textEdit_34.textChanged.connect(lambda:self.plot(0))
+        self.textEdit_43.textChanged.connect(lambda:self.plot(0))
+        self.textEdit_33.textChanged.connect(lambda:self.plot(0))
+        self.textEdit_44.textChanged.connect(lambda:self.plot(0))
+        '''
+    def lig(self,a,x):
+        if a == 'legend':
+            self.legend = x
+        elif a == 'mark':
+            self.mark = x
+        self.plot(0)
+            
+        return
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -263,6 +279,7 @@ class Ui_MainWindow(object):
         self.label_26.setText(_translate("MainWindow", "Espessura da linha"))
         self.label_27.setText(_translate("MainWindow", "Modo de número:"))
         self.label_28.setText(_translate("MainWindow", "Eixos"))
+        self.label_29.setText(_translate("MainWindow", "Vel cert."))
 
 
     def vec(self,to):
@@ -274,78 +291,203 @@ class Ui_MainWindow(object):
 
         return
 
-    def plot(self):
+    def plot(self,jj):
         self.n_mechs=0
-        self.A=[]
         self.mode=1
+        if jj ==0:
+            self.B = [None]*1
+            self.B[0]=7
+            self.x = 7
+            self.A=[]
+
+            self.vec(self.textEdit_axismin.toPlainText())
+            self.vec(self.textEdit_axismin_3.toPlainText())
+            self.vec(self.textEdit_axismin_11.toPlainText())
+            self.vec(self.textEdit_axismax.toPlainText())
+            self.vec(self.textEdit_axismax_3.toPlainText())
+            self.vec(self.textEdit_axismax_12.toPlainText())
+            self.vec(self.textEdit_axismin_2.toPlainText())
+            self.vec(self.textEdit_axismin_4.toPlainText())
+            self.vec(self.textEdit_axismin_10.toPlainText())
+            self.vec(self.textEdit_axismax_4.toPlainText())
+            self.vec(self.textEdit_axismax_9.toPlainText())
+            self.vec(self.textEdit_axismin_5.toPlainText())
+            self.vec(self.textEdit_axismin_8.toPlainText())
+            self.vec(self.textEdit_axismin_12.toPlainText())
+            self.vec(self.textEdit_axismin_7.toPlainText())
+            self.vec(self.textEdit_axismax_5.toPlainText())
+            self.vec(self.textEdit_axismax_8.toPlainText())
+            self.vec(self.textEdit_axismax_10.toPlainText())
+            self.vec(self.textEdit_axismin_6.toPlainText())
+            self.vec(self.textEdit_axismax_7.toPlainText())
+            self.vec(self.textEdit_axismax_6.toPlainText())
+            self.vec(self.textEdit_axismax_11.toPlainText())
+            self.vec(self.textEdit_axismax_2.toPlainText())
+            self.vec(self.textEdit_axismin_9.toPlainText())
+
+        elif jj == 1:
+            self.x = self.x-1
+            #self.B[0]=self.x
+            self.n_mechs=1
+            try:
+                #self.x=self.A[-1]-1
+                #self.B[0]=self.x
+                pass
+            except:
+                pass
+
+        elif jj == 2:
+            self.x = self.x+1
+            #self.B[0]=self.x
+            self.n_mechs=1
+            try:
+                #self.x=self.A[-1]+1
+                #self.B[0]=self.x
+                pass
+            except:
+                pass
+        else:
+            pass
         
-        self.vec(self.textEdit_axismin.toPlainText())
-        self.vec(self.textEdit_axismin_3.toPlainText())
-        self.vec(self.textEdit_axismin_11.toPlainText())
-        self.vec(self.textEdit_axismax.toPlainText())
-        self.vec(self.textEdit_axismax_3.toPlainText())
-        self.vec(self.textEdit_axismax_12.toPlainText())
-        self.vec(self.textEdit_axismin_2.toPlainText())
-        self.vec(self.textEdit_axismin_4.toPlainText())
-        self.vec(self.textEdit_axismin_10.toPlainText())
-        self.vec(self.textEdit_axismax_4.toPlainText())
-        self.vec(self.textEdit_axismax_9.toPlainText())
-        self.vec(self.textEdit_axismin_5.toPlainText())
-        self.vec(self.textEdit_axismin_8.toPlainText())
-        self.vec(self.textEdit_axismin_12.toPlainText())
-        self.vec(self.textEdit_axismin_7.toPlainText())
-        self.vec(self.textEdit_axismax_5.toPlainText())
-        self.vec(self.textEdit_axismax_8.toPlainText())
-        self.vec(self.textEdit_axismax_10.toPlainText())
-        self.vec(self.textEdit_axismin_6.toPlainText())
-        self.vec(self.textEdit_axismax_7.toPlainText())
-        self.vec(self.textEdit_axismax_6.toPlainText())
-        self.vec(self.textEdit_axismax_11.toPlainText())
-        self.vec(self.textEdit_axismax_2.toPlainText())
-        self.vec(self.textEdit_axismin_9.toPlainText())
+
+        try: 
+            self.amortminX = float(self.textEdit_31.toPlainText())
+        except : 
+            self.amortminX =0 
+            self.textEdit_31.insertPlainText(str(self.amortminX))
+        try: 
+            self.amortmaxX = float(self.textEdit_41.toPlainText())
+        except : 
+            self.amortmaxX = 32
+            self.textEdit_41.insertPlainText(str(self.amortmaxX))
+        try: 
+            self.amortminY = float(self.textEdit_32.toPlainText())
+        except : 
+            self.amortminY = -0.2
+            self.textEdit_32.insertPlainText(str(self.amortminY))
+        try: 
+            self.amortmaxY = float(self.textEdit_42.toPlainText())
+        except : 
+            self.amortmaxY = 0.2
+            self.textEdit_42.insertPlainText(str(self.amortmaxY))
+        try: 
+            self.freqminX = float(self.textEdit_34.toPlainText())
+        except : 
+            self.freqminX = 0
+            self.textEdit_34.insertPlainText(str(self.freqminX))
+
+        try: 
+            self.freqmaxX = float(self.textEdit_43.toPlainText())
+        except : 
+            self.freqmaxX = 32
+            self.textEdit_43.insertPlainText(str(self.freqmaxX))
+
+        try: 
+            self.freqminY = float(self.textEdit_33.toPlainText())
+        except : 
+            self.freqminY = 0
+            self.textEdit_33.insertPlainText(str(self.freqminY))
+
+        try: 
+            self.freqmaxY = float(self.textEdit_44.toPlainText())
+        except : 
+            self.freqmaxY = 50
+            self.textEdit_44.insertPlainText(str(self.freqmaxY))
+
+        try: 
+            self.V_cert = float(self.textEdit_46.toPlainText())
+        except : 
+            self.V_cert=27
+            self.textEdit_46.insertPlainText(str(self.V_cert))
+
+        try: 
+            self.tickness = float(self.textEdit_45.toPlainText())
+        except : 
+            self.tickness=1
+            self.textEdit_45.insertPlainText(str(self.tickness))
 
 
-        print(self.A)
-        print(self.n_mechs)
-        if self.A[2]
-            self.plote(1)
-        else
-            self.plote(0)
 
+        try: 
+            a= int(self.A[0])
+            if jj ==0:
+                g=1
+            else:
+                g=2
+        except:
+            if jj == 0:
+                g=0
+            else:
+                g=2
+        self.plote(g)
 
     def plote(self,g):
         try: self.fig.clf()
         except: pass
+        self.symbols = ['o', 's', 'd', '^', 'v', '*', 'P', 'h']
+        if g==1: 
+            self.x=self.A[0]
+        elif g==0: 
+            self.x = self.B[0]+1
+            self.n_mechs=1
+        elif g==2:
+            self.n_mechs=1
+
         for i in range(self.n_mechs):
-            if g==1: self.A[i]
-            else: pass
+            if g==1: 
+                self.x=self.A[i]+1
+            elif g==0: self.x = self.B[0]+1
             self.fig_canvas = self.plot_static_canvas
             self.fig = self.fig_canvas.figure
             
-            self.ax = self.fig.add_subplot(111)
+            self.ax = self.fig.add_subplot(211)
+            self.ax2 = self.fig.add_subplot(212)
 
-            self.ax.subplot(211)
-            self.ax.plot(self.vel[7],self.freq[x],marker=self.symbols[i], markersize=4.5, linewidth=1)
-            self.ax.set_xlim(0,40)
-            #self.ax.set_ylim(-0.5,0.5)
-
-            self.ax.set_xlabel('Velocidade (m/s)')
-            self.ax.set_ylabel('Frequência (Hz)')
-
-
-            self.ax.subplot(212)
-            self.ax.axhline(y=0, color='black')
-            self.ax.axvline(x=32, linewidth=1.5, color='red')
-            self.ax.plot(self.vel[7],self.damp[x],marker=self.symbols[i], markersize=4.5, linewidth=1)
-            self.ax.set_xlim(0,40)
-            self.ax.set_ylim(-0.5,0.5)
+            #self.ax.subplot(211)
+            box1 = self.ax.get_position()
+            if self.mark == 0:
+                ssymbols = None
+                markk = None
+            else:
+                markk = 4.5*self.tickness
+                ssymbols = self.symbols[i]
             
-            self.ax.set_xlabel('Velocidade (m/s)')
-            self.ax.set_ylabel('Amortecimento')
-            if g==1: x=x+1
+            self.ax.plot(self.vel[7],self.freq[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
+            self.ax.set_xlim(self.freqminX,self.freqmaxX)
+            self.ax.set_ylim(self.freqminY,self.freqmaxY)
+            if i<1:
+                self.ax.set_position([box1.x0, box1.y0, box1.width * 0.93, box1.height])
+
+            #self.ax.set_xlabel('Velocidade (m/s)')
+            self.ax.set_ylabel('Frequência (Hz)')
+            self.ax.set_title('Diagrama v-g-f')
+            
+            if self.legend != 0:
+                self.ax.legend(loc='upper left',fontsize = 'small', framealpha =1, bbox_to_anchor=(1.014, 1),fancybox=True)
+
+            box2 = self.ax2.get_position()
+
+            #self.ax.subplot(212)
+            self.ax2.axhline(y=0, color='black')
+            self.ax2.axvline(x=self.V_cert, linewidth=1.5, color='red')
+            self.ax2.plot(self.vel[7],self.damp[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness)
+            self.ax2.set_xlim(self.amortminX,self.amortmaxX)
+            self.ax2.set_ylim(self.amortminY,self.amortmaxY)
+            if i<1:
+                self.ax2.set_position([box2.x0, box2.y0, box2.width * 0.93, box2.height])
+
+            self.ax2.set_xlabel('Velocidade (m/s)')
+            self.ax2.set_ylabel('Amortecimento')
+            if g==1: self.x=self.x+1
             else: pass
+
+        
         self.fig_canvas.draw()
-        self.textBrowser.append(x)
+        self.textBrowser.clear()
+        if g==1: 
+            self.textBrowser.append(str(self.x-2))
+        else:
+            self.textBrowser.append(str(self.x-1))
 
     def extract(self,a):
             
