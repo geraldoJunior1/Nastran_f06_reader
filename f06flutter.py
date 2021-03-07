@@ -346,50 +346,63 @@ class Ui_MainWindow(object):
         self.checkBox_9 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_9.setGeometry(QtCore.QRect(1030, 190, 21, 17))
         self.checkBox_9.setText("")
+        self.checkBox_9.setChecked(True)
         self.checkBox_9.setObjectName("checkBox_9")
         self.checkBox_10 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_10.setGeometry(QtCore.QRect(1030, 220, 21, 17))
         self.checkBox_10.setText("")
+        self.checkBox_10.setChecked(True)
         self.checkBox_10.setObjectName("checkBox_10")
         self.checkBox_11 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_11.setGeometry(QtCore.QRect(1030, 250, 21, 17))
         self.checkBox_11.setText("")
+        self.checkBox_11.setChecked(True)
         self.checkBox_11.setObjectName("checkBox_11")
         self.checkBox_12 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_12.setGeometry(QtCore.QRect(1030, 280, 21, 17))
         self.checkBox_12.setText("")
+        self.checkBox_12.setChecked(True)
         self.checkBox_12.setObjectName("checkBox_12")
         self.checkBox_13 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_13.setGeometry(QtCore.QRect(1030, 400, 21, 17))
         self.checkBox_13.setText("")
+        self.checkBox_13.setChecked(True)
         self.checkBox_13.setObjectName("checkBox_13")
         self.checkBox_14 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_14.setGeometry(QtCore.QRect(1030, 310, 21, 17))
         self.checkBox_14.setText("")
+        self.checkBox_14.setChecked(True)
         self.checkBox_14.setObjectName("checkBox_14")
         self.checkBox_15 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_15.setGeometry(QtCore.QRect(1030, 340, 21, 17))
+        self.checkBox_15.setAutoFillBackground(False)
         self.checkBox_15.setText("")
+        self.checkBox_15.setChecked(True)
         self.checkBox_15.setObjectName("checkBox_15")
         self.checkBox_16 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_16.setGeometry(QtCore.QRect(1030, 370, 21, 17))
         self.checkBox_16.setText("")
+        self.checkBox_16.setChecked(True)
         self.checkBox_16.setObjectName("checkBox_16")
         self.checkBox_17 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_17.setGeometry(QtCore.QRect(1030, 520, 21, 17))
         self.checkBox_17.setText("")
+        self.checkBox_17.setChecked(True)
         self.checkBox_17.setObjectName("checkBox_17")
         self.checkBox_18 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_18.setGeometry(QtCore.QRect(1030, 430, 21, 17))
         self.checkBox_18.setText("")
+        self.checkBox_18.setChecked(True)
         self.checkBox_18.setObjectName("checkBox_18")
         self.checkBox_19 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_19.setGeometry(QtCore.QRect(1030, 460, 21, 17))
         self.checkBox_19.setText("")
+        self.checkBox_19.setChecked(True)
         self.checkBox_19.setObjectName("checkBox_19")
         self.checkBox_20 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_20.setGeometry(QtCore.QRect(1030, 490, 21, 17))
         self.checkBox_20.setText("")
+        self.checkBox_20.setChecked(True)
         self.checkBox_20.setObjectName("checkBox_20")
         self.checkBox_7 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_7.setGeometry(QtCore.QRect(1090, 90, 121, 17))
@@ -426,14 +439,41 @@ class Ui_MainWindow(object):
         self.mark = 0
         self.mult = 0
         self.velo = 0
+        self.bycases=0
         self.eff=0
+        self.box1=2
+        self.box2=2
+        self.box3=2
+        self.box4=2
+        self.box5=2
+        self.box6=2
+        self.box7=2
+        self.box8=2
+        self.box9=2
+        self.box10=2
+        self.box11=2
+        self.box12=2
         self.B = [None]*1
         self.checkBox.stateChanged.connect(lambda x:self.lig('legend',x))
         self.checkBox_2.stateChanged.connect(lambda x:self.lig('mark',x))
         self.checkBox_3.stateChanged.connect(lambda x:self.lig('diff',x))
         self.checkBox_4.stateChanged.connect(lambda x:self.lig('velo',x))
-        self.checkBox_4.stateChanged.connect(lambda x:self.lig('velo',x))
+        #self.checkBox_4.stateChanged.connect(lambda x:self.lig('velo',x))
         self.checkBox_8.stateChanged.connect(lambda x:self.lig('eff',x))
+        self.checkBox_9.stateChanged.connect(lambda x:self.lig('1',x))
+        self.checkBox_10.stateChanged.connect(lambda x:self.lig('2',x))
+        self.checkBox_11.stateChanged.connect(lambda x:self.lig('3',x))
+        self.checkBox_12.stateChanged.connect(lambda x:self.lig('4',x))
+        self.checkBox_13.stateChanged.connect(lambda x:self.lig('8',x))
+        self.checkBox_14.stateChanged.connect(lambda x:self.lig('5',x))
+        self.checkBox_15.stateChanged.connect(lambda x:self.lig('6',x))
+        self.checkBox_16.stateChanged.connect(lambda x:self.lig('7',x))
+        self.checkBox_17.stateChanged.connect(lambda x:self.lig('12',x))
+        self.checkBox_18.stateChanged.connect(lambda x:self.lig('9',x))
+        self.checkBox_19.stateChanged.connect(lambda x:self.lig('10',x))
+        self.checkBox_20.stateChanged.connect(lambda x:self.lig('11',x))
+        
+        self.checkBox_7.stateChanged.connect(lambda x:self.lig('bycases',x))        
 
         '''
         self.textEdit_31.textChanged.connect(lambda:self.plot(0))
@@ -461,6 +501,48 @@ class Ui_MainWindow(object):
                 return
             elif a == 'eff':
                 self.eff=x
+                return
+
+
+            elif a == '1':
+                self.box1=x
+                return
+            elif a == '2':
+                self.box2 = x
+                return
+            elif a == '3':
+                self.box3 = x
+                return
+            elif a == '4':
+                self.box4=x
+                return
+            elif a == '5':
+                self.box5=x
+                return
+            elif a == '6':
+                self.box6=x
+                return
+            elif a == '7':
+                self.box7=x
+                return
+            elif a == '8':
+                self.box8 = x
+                return
+            elif a == '9':
+                self.box9 = x
+                return
+            elif a == '10':
+                self.box10=x
+                return
+            elif a == '11':
+                self.box11=x
+                return
+            elif a == '12':
+                self.box12=x
+                return
+
+            elif a == 'bycases':
+                self.bycases=x
                 return
 
             self.plot(0)
@@ -725,7 +807,11 @@ class Ui_MainWindow(object):
                 return
 
             if self.mult==0:
-                self.vel, self.damp, self.freq = self.extract(str(self.textEdit_axismax_25.toPlainText()))
+                if self.bycases==0:
+                    self.vel, self.damp, self.freq = self.extract(str(self.textEdit_axismax_25.toPlainText()))
+                else:
+                    self.vel, self.damp, self.freq = self.extract2(str(self.textEdit_axismax_25.toPlainText()))
+
 
                 self.n_mechs=0
                 self.mode=1
@@ -857,20 +943,163 @@ class Ui_MainWindow(object):
                 except: pass
 
                 if jj == 1:
-                    for i in range(len(self.modes)):
-                        #try:
-                        #    if self.box1 != 0
-                        #        canolli = self.modes[0]
-                        #        self.modes[0] = canolli - 1
-                        #    else:
-                        #        pass
-                        canolli = self.modes[i]
-                        self.modes[i] = canolli-1
+                    #for i in range(len(self.modes)):
+                    if True:
+                        if True:
+                            try:
+                                if self.box1 != 0:
+                                    canolli = self.modes[0]
+                                    self.modes[0] = canolli - 1
+                            except:
+                                pass
+                            try:
+                                if self.box2 != 0:
+                                    canolli = self.modes[1]
+                                    self.modes[1] = canolli - 1     
+                            except:
+                                pass
+                            try:            
+                                if self.box3 != 0:
+                                    canolli = self.modes[2]
+                                    self.modes[2] = canolli - 1
+                            except:
+                                pass
+                            try:
+                                if self.box4 != 0:
+                                    canolli = self.modes[3]
+                                    self.modes[3] = canolli - 1       
+                            except:
+                                pass
+                            try:             
+                                if self.box5 != 0:
+                                    canolli = self.modes[4]
+                                    self.modes[4] = canolli - 1
+                            except:
+                                pass
+                            try:
+                                if self.box6 != 0:
+                                    canolli = self.modes[5]
+                                    self.modes[5] = canolli - 1          
+                            except:
+                                pass
+                            try:       
+                                if self.box7 != 0:
+                                    canolli = self.modes[6]
+                                    self.modes[6] = canolli - 1
+                            except:
+                                pass
+                            try:
+                                if self.box8 != 0:
+                                    canolli = self.modes[7]
+                                    self.modes[7] = canolli - 1     
+                            except:
+                                pass
+                            try:               
+                                if self.box9 != 0:
+                                    canolli = self.modes[8]
+                                    self.modes[8] = canolli - 1
+                            except:
+                                pass
+                            try:
+                                if self.box10 != 0:
+                                    canolli = self.modes[9]
+                                    self.modes[9] = canolli - 1    
+                            except:
+                                pass
+                            try:             
+                                if self.box11 != 0:
+                                    canolli = self.modes[10]
+                                    self.modes[10] = canolli - 1
+                            except:
+                                pass
+                            try:
+                                if self.box12 != 0:
+                                    canolli = self.modes[11]
+                                    self.modes[11] = canolli - 1   
+                            except:
+                                pass               
+                            else:
+                                pass
+                        #canolli = self.modes[i]
+                        #self.modes[i] = canolli-1
 
                 elif jj == 2:
-                    for i in range(len(self.modes)):
-                        canolli = self.modes[i]
-                        self.modes[i] = canolli+1
+                    if True:
+                    #for i in range(len(self.modes)):
+                            try:
+                                if self.box1 != 0:
+                                    canolli = self.modes[0]
+                                    self.modes[0] = canolli + 1
+                            except:
+                                pass
+                            try:
+                                if self.box2 != 0:
+                                    canolli = self.modes[1]
+                                    self.modes[1] = canolli + 1          
+                            except:
+                                pass
+                            try:       
+                                if self.box3 != 0:
+                                    canolli = self.modes[2]
+                                    self.modes[2] = canolli + 1
+                            except:
+                                pass
+                            try:
+                                if self.box4 != 0:
+                                    canolli = self.modes[3]
+                                    self.modes[3] = canolli + 1      
+                            except:
+                                pass
+                            try:              
+                                if self.box5 != 0:
+                                    canolli = self.modes[4]
+                                    self.modes[4] = canolli + 1
+                            except:
+                                pass
+                            try:
+                                if self.box6 != 0:
+                                    canolli = self.modes[5]
+                                    self.modes[5] = canolli + 1    
+                            except:
+                                pass
+                            try:             
+                                if self.box7 != 0:
+                                    canolli = self.modes[6]
+                                    self.modes[6] = canolli + 1
+                            except:
+                                pass
+                            try:
+                                if self.box8 != 0:
+                                    canolli = self.modes[7]
+                                    self.modes[7] = canolli + 1        
+                            except:
+                                pass
+                            try:            
+                                if self.box9 != 0:
+                                    canolli = self.modes[8]
+                                    self.modes[8] = canolli + 1
+                            except:
+                                pass
+                            try:
+                                if self.box10 != 0:
+                                    canolli = self.modes[9]
+                                    self.modes[9] = canolli + 1      
+                            except:
+                                pass
+                            try:           
+                                if self.box11 != 0:
+                                    canolli = self.modes[10]
+                                    self.modes[10] = canolli + 1
+                            except:
+                                pass
+                            try:
+                                if self.box12 != 0:
+                                    canolli = self.modes[11]
+                                    self.modes[11] = canolli + 1                    
+                            except:
+                                pass
+                        #canolli = self.modes[i]
+                        #self.modes[i] = canolli+1
                 if jj != 0:
                     try: 
                         self.textEdit_axismax_13.clear()
@@ -924,12 +1153,16 @@ class Ui_MainWindow(object):
                 ax = len(self.modes)
                 self.patchs = self.patchs[:ax]
                 for i in range (len(self.patchs)):
-                    self.vel, self.damp, self.freq = self.extract(self.patchs[i])
-
+                    if self.bycases ==0:
+                        self.vel, self.damp, self.freq = self.extract(self.patchs[i])
+                    else:
+                        self.vel, self.damp, self.freq = self.extract2(self.patchs[i])
+                    
                     self.velao.append(self.vel)
                     self.dampao.append(self.damp)
                     self.freqao.append(self.freq)
 
+            
                 self.plote2()
         except:
             return
@@ -1000,6 +1233,7 @@ class Ui_MainWindow(object):
 
 
     def plote(self,g):
+
         try:
             try: self.fig.clf()
             except: pass
@@ -1011,7 +1245,10 @@ class Ui_MainWindow(object):
                 self.n_mechs=1
             elif g==2:
                 self.n_mechs=1
-
+            if self.bycases !=0:
+                self.anao=2
+            else:
+                self.anao=0
             for i in range(self.n_mechs):
                 if g==1: 
                     self.x=self.A[i]+1
@@ -1073,6 +1310,69 @@ class Ui_MainWindow(object):
         except:
             return
 
+    def extract2(self,a):
+
+        try:
+            path = a #./
+            fileID = open(path,'r')
+            tline = fileID.readline()
+            l=10000000
+            x=10000000
+            alicate=1
+            point=0
+
+            vel = []
+            damp = []
+            freq = []
+
+            while  tline:
+
+                a=tline
+
+                design=a.find('FLUTTER  SUMMARY')
+
+                if design!=-1:
+                    l=1
+                else:
+                    l=l+1
+
+                if l==3:
+                    point = int(a[17:20])
+
+
+                if l==7:
+                    vel_point = (float(a[39:52]))
+                    damp_point = (float(a[56:70]))
+                    freq_point = (float(a[75:90]))
+
+                    try:
+                        v1=vel[point-1]
+                        d1=damp[point-1]
+                        f1=freq[point-1]
+                        v1.append(vel_point)
+                        d1.append(damp_point)
+                        f1.append(freq_point)
+                        vel[point-1]=v1
+                        damp[point-1]=d1
+                        freq[point-1]=f1
+                    except:
+                        vel.append([vel_point])
+                        damp.append([damp_point])
+                        freq.append([freq_point])
+
+                alicate = point
+
+                tline = fileID.readline()
+
+            fileID.close()
+            print(vel)
+            print(damp)
+            return vel, damp, freq
+
+        except:
+            return
+
+
     def extract(self,a):
         try:
             path = a #./
@@ -1131,6 +1431,7 @@ class Ui_MainWindow(object):
                 tline = fileID.readline()
 
             fileID.close()
+
             return vel, damp, freq
         except:
             return
