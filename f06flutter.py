@@ -11,6 +11,7 @@
 import numpy as np
 import os
 import sys
+import math
 import matplotlib.pyplot as plt
 from matplotlib.backends.qt_compat import QtCore, QtWidgets, is_pyqt5
 
@@ -439,9 +440,11 @@ class Ui_MainWindow(object):
         self.mark = 0
         self.mult = 0
         self.velo = 0
+        self.velo = 0
         self.bycases=0
         self.eff=0
         self.box1=2
+        self.keas=0
         self.box2=2
         self.box3=2
         self.box4=2
@@ -472,6 +475,7 @@ class Ui_MainWindow(object):
         self.checkBox_18.stateChanged.connect(lambda x:self.lig('9',x))
         self.checkBox_19.stateChanged.connect(lambda x:self.lig('10',x))
         self.checkBox_20.stateChanged.connect(lambda x:self.lig('11',x))
+        self.checkBox_6.stateChanged.connect(lambda x:self.lig('keas',x))
         
         self.checkBox_7.stateChanged.connect(lambda x:self.lig('bycases',x))        
 
@@ -543,6 +547,9 @@ class Ui_MainWindow(object):
 
             elif a == 'bycases':
                 self.bycases=x
+                return
+            elif a == 'keas':
+                self.keas=x
                 return
 
             self.plot(0)
@@ -808,17 +815,17 @@ class Ui_MainWindow(object):
 
             if self.mult==0:
                 if self.bycases==0:
-                    self.vel, self.damp, self.freq = self.extract(str(self.textEdit_axismax_25.toPlainText()))
+                    self.vel, self.damp, self.freq, self.vel2 = self.extract(str(self.textEdit_axismax_25.toPlainText()))
                 else:
-                    self.vel, self.damp, self.freq = self.extract2(str(self.textEdit_axismax_25.toPlainText()))
-
+                    self.vel, self.damp, self.freq, self.vel2 = self.extract2(str(self.textEdit_axismax_25.toPlainText()))
+                    print('ola')
 
                 self.n_mechs=0
                 self.mode=1
                 if jj ==0:
                     if self.B[0] == None:
-                        self.B[0]=7
-                        self.x = 7
+                        self.B[0]=1
+                        self.x = 1
                     self.A=[]
 
                     self.vec(self.textEdit_axismin.toPlainText())
@@ -886,6 +893,7 @@ class Ui_MainWindow(object):
             else:
 
                 self.velao =[]
+                self.velao2 =[]
                 self.dampao =[]
                 self.freqao =[]
                 self.patchs = []
@@ -1154,14 +1162,15 @@ class Ui_MainWindow(object):
                 self.patchs = self.patchs[:ax]
                 for i in range (len(self.patchs)):
                     if self.bycases ==0:
-                        self.vel, self.damp, self.freq = self.extract(self.patchs[i])
+                        self.vel, self.damp, self.freq, self.vel2 = self.extract(self.patchs[i])
                     else:
-                        self.vel, self.damp, self.freq = self.extract2(self.patchs[i])
+                        self.vel, self.damp, self.freq, self.vel2 = self.extract2(self.patchs[i])
                     
                     self.velao.append(self.vel)
+                    self.velao2.append(self.vel2)
                     self.dampao.append(self.damp)
                     self.freqao.append(self.freq)
-
+                    print('ooo')
             
                 self.plote2()
         except:
@@ -1174,6 +1183,7 @@ class Ui_MainWindow(object):
             self.symbols = ['o', 's', 'd', '^', 'v', '*', 'P', 'h']
             self.frequin =[]
             self.velin = []
+            self.velin2 = []
             self.sampin = []
 
             for i in range(len(self.patchs)):
@@ -1184,6 +1194,7 @@ class Ui_MainWindow(object):
                 self.ax = self.fig.add_subplot(211)
                 self.ax2 = self.fig.add_subplot(212)
                 self.velin = self.velao[i]
+                self.velin2 = self.velao2[i]
                 self.dampin = self.dampao[i]
                 self.frequin = self.freqao[i]
                 self.y = self.modes[i]
@@ -1197,7 +1208,12 @@ class Ui_MainWindow(object):
                     markk = self.ticknessMark
                     ssymbols = self.symbols[i]
                 name = self.patchs[i]
-                self.ax.plot(self.velin[7],self.frequin[self.y+1],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=(name[:-4]))
+                print(self.velin2)
+                if self.keas==0:
+                    self.ax.plot(self.velin[self.y+1],self.frequin[self.y+1],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=(name[:-4]))
+                else:
+                    self.ax.plot(self.velin2[self.y+1],self.frequin[self.y+1],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=(name[:-4]))
+
                 self.ax.set_xlim(self.freqminX,self.freqmaxX)
                 self.ax.set_ylim(self.freqminY,self.freqmaxY)
                 if i<1:
@@ -1218,14 +1234,18 @@ class Ui_MainWindow(object):
                 if self.velo != 0:
                     self.ax2.axvline(x=self.V_cert, linewidth=1.5, color='red')
 
-                
-                self.ax2.plot(self.velin[7],self.dampin[self.y+1],marker=ssymbols, markersize=markk, linewidth=self.tickness)
+                if self.keas==0:
+                    self.ax2.plot(self.velin[self.y+1],self.dampin[self.y+1],marker=ssymbols, markersize=markk, linewidth=self.tickness)
+                else:
+                    self.ax2.plot(self.velin2[self.y+1],self.dampin[self.y+1],marker=ssymbols, markersize=markk, linewidth=self.tickness)
                 self.ax2.set_xlim(self.amortminX,self.amortmaxX)
                 self.ax2.set_ylim(self.amortminY,self.amortmaxY)
                 if i<1:
                     self.ax2.set_position([box2.x0, box2.y0, box2.width * 0.93, box2.height])
-
-                self.ax2.set_xlabel('Velocidade (m/s)')
+                if self.keas==0:
+                    self.ax2.set_xlabel('Velocidade (m/s)')
+                else:
+                    self.ax2.set_xlabel('Velocidade (keas)')
                 self.ax2.set_ylabel('Amortecimento')
             self.fig_canvas.draw()
         except:
@@ -1267,8 +1287,10 @@ class Ui_MainWindow(object):
                 else:
                     markk = self.ticknessMark
                     ssymbols = self.symbols[i]
-                
-                self.ax.plot(self.vel[7],self.freq[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
+                if self.keas == 0:
+                    self.ax.plot(self.vel[self.x],self.freq[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
+                else:
+                    self.ax.plot(self.vel2[self.x],self.freq[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
                 self.ax.set_xlim(self.freqminX,self.freqmaxX)
                 self.ax.set_ylim(self.freqminY,self.freqmaxY)
                 if i<1:
@@ -1288,14 +1310,19 @@ class Ui_MainWindow(object):
 
                 if self.velo != 0:
                     self.ax2.axvline(x=self.V_cert, linewidth=1.5, color='red')
-                
-                self.ax2.plot(self.vel[7],self.damp[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness)
+                if self.keas == 0:
+                    self.ax2.plot(self.vel[self.x],self.damp[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness)
+                else:
+                    self.ax2.plot(self.vel2[self.x],self.damp[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness)
                 self.ax2.set_xlim(self.amortminX,self.amortmaxX)
                 self.ax2.set_ylim(self.amortminY,self.amortmaxY)
                 if i<1:
                     self.ax2.set_position([box2.x0, box2.y0, box2.width * 0.93, box2.height])
 
-                self.ax2.set_xlabel('Velocidade (m/s)')
+                if self.keas==0:
+                    self.ax2.set_xlabel('Velocidade (m/s)')
+                else:
+                    self.ax2.set_xlabel('Velocidade (keas)')
                 self.ax2.set_ylabel('Amortecimento')
                 if g==1: self.x=self.x+1
                 else: pass
@@ -1322,6 +1349,7 @@ class Ui_MainWindow(object):
             point=0
 
             vel = []
+            vel2 = []
             damp = []
             freq = []
 
@@ -1341,22 +1369,30 @@ class Ui_MainWindow(object):
 
 
                 if l==7:
-                    vel_point = (float(a[39:52]))
-                    damp_point = (float(a[56:70]))
-                    freq_point = (float(a[75:90]))
+                    vel_point = (float(a[58:69]))
+                    #vel_point = (float(a[39:52]))
+                    vel_point2 = ((float(a[58:69]))*(math.sqrt(float(a[28:41])))*1.9438444924574)
+                    #damp_point = (float(a[56:70]))
+                    damp_point = (float(a[70:83]))
+                    #freq_point = (float(a[75:90]))
+                    freq_point = (float(a[86:97]))
 
                     try:
                         v1=vel[point-1]
+                        v12=vel2[point-1]
                         d1=damp[point-1]
                         f1=freq[point-1]
+                        v12.append(vel_point2)
                         v1.append(vel_point)
                         d1.append(damp_point)
                         f1.append(freq_point)
                         vel[point-1]=v1
+                        vel2[point-1]=v12
                         damp[point-1]=d1
                         freq[point-1]=f1
                     except:
                         vel.append([vel_point])
+                        vel2.append([vel_point2])
                         damp.append([damp_point])
                         freq.append([freq_point])
 
@@ -1367,7 +1403,8 @@ class Ui_MainWindow(object):
             fileID.close()
             print(vel)
             print(damp)
-            return vel, damp, freq
+            print(vel2)
+            return vel, damp, freq, vel2
 
         except:
             return
@@ -1384,12 +1421,15 @@ class Ui_MainWindow(object):
             alicate=1
             point=0
             vel_point = np.zeros((36,1))
+            vel_point2 = np.zeros((36,1))
             damp_point = np.zeros((36,1))
             freq_point = np.zeros((36,1))
             vel = []
+            vel2=[]
             damp = []
             freq = []
             vel_point = []
+            vel_point2 = []
             damp_point = []
             freq_point = []
             while  tline:
@@ -1411,6 +1451,7 @@ class Ui_MainWindow(object):
 
                 if x<=36:
                     vel_point.append(float(a[58:69]))
+                    vel_point2.append((float(a[58:69]))*math.sqrt(float(a[28:42]))*1.9438444924574)
                     damp_point.append(float(a[70:83]))
                     freq_point.append(float(a[86:97]))
 
@@ -1419,10 +1460,12 @@ class Ui_MainWindow(object):
                 if point != alicate and x>36:
 
                     vel.append(vel_point)
+                    vel2.append(vel_point2)
                     damp.append(damp_point)
                     freq.append(freq_point)
 
                     vel_point = []
+                    vel_point2= []
                     damp_point = []
                     freq_point = []
 
@@ -1432,7 +1475,7 @@ class Ui_MainWindow(object):
 
             fileID.close()
 
-            return vel, damp, freq
+            return vel, damp, freq, vel2
         except:
             return
 
