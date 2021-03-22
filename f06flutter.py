@@ -1209,6 +1209,7 @@ class Ui_MainWindow(object):
                     ssymbols = self.symbols[i]
                 name = self.patchs[i]
                 print(self.velin2)
+                if self.bycases != 0: self.y=self.y-2
                 if self.keas==0:
                     self.ax.plot(self.velin[self.y+1],self.frequin[self.y+1],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=(name[:-4]))
                 else:
@@ -1248,6 +1249,7 @@ class Ui_MainWindow(object):
                     self.ax2.set_xlabel('Velocidade (keas)')
                 self.ax2.set_ylabel('Amortecimento')
             self.fig_canvas.draw()
+
         except:
             return
 
@@ -1287,10 +1289,14 @@ class Ui_MainWindow(object):
                 else:
                     markk = self.ticknessMark
                     ssymbols = self.symbols[i]
+                if self.bycases != 0: 
+                    pl=self.x-2
+                else: 
+                    pl = self.x
                 if self.keas == 0:
-                    self.ax.plot(self.vel[self.x],self.freq[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
+                    self.ax.plot(self.vel[pl],self.freq[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
                 else:
-                    self.ax.plot(self.vel2[self.x],self.freq[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
+                    self.ax.plot(self.vel2[pl],self.freq[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
                 self.ax.set_xlim(self.freqminX,self.freqmaxX)
                 self.ax.set_ylim(self.freqminY,self.freqmaxY)
                 if i<1:
@@ -1311,9 +1317,9 @@ class Ui_MainWindow(object):
                 if self.velo != 0:
                     self.ax2.axvline(x=self.V_cert, linewidth=1.5, color='red')
                 if self.keas == 0:
-                    self.ax2.plot(self.vel[self.x],self.damp[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness)
+                    self.ax2.plot(self.vel[pl],self.damp[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness)
                 else:
-                    self.ax2.plot(self.vel2[self.x],self.damp[self.x],marker=ssymbols, markersize=markk, linewidth=self.tickness)
+                    self.ax2.plot(self.vel2[pl],self.damp[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness)
                 self.ax2.set_xlim(self.amortminX,self.amortmaxX)
                 self.ax2.set_ylim(self.amortminY,self.amortmaxY)
                 if i<1:
@@ -1330,7 +1336,9 @@ class Ui_MainWindow(object):
             
             self.fig_canvas.draw()
             self.textBrowser.clear()
-            if g==1: 
+            if self.bycases != 0: 
+                self.textBrowser.append(str(self.x-1))
+            elif g==1: 
                 self.textBrowser.append(str(self.x-2))
             else:
                 self.textBrowser.append(str(self.x-1))
