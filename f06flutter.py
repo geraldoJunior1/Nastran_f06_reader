@@ -51,10 +51,10 @@ class Ui_MainWindow(object):
         self.textEdit_32.setMaximumSize(QtCore.QSize(16777215, 35))
         self.textEdit_32.setObjectName("textEdit_32")
         self.label_14 = QtWidgets.QLabel(self.centralwidget)
-        self.label_14.setGeometry(QtCore.QRect(10, 560, 91, 16))
+        self.label_14.setGeometry(QtCore.QRect(43, 560, 91, 16))
         self.label_14.setObjectName("label_14")
         self.label_15 = QtWidgets.QLabel(self.centralwidget)
-        self.label_15.setGeometry(QtCore.QRect(10, 590, 91, 16))
+        self.label_15.setGeometry(QtCore.QRect(43, 590, 91, 16))
         self.label_15.setObjectName("label_15")
         self.label_16 = QtWidgets.QLabel(self.centralwidget)
         self.label_16.setGeometry(QtCore.QRect(130, 540, 61, 16))
@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
         self.textEdit_45.setMaximumSize(QtCore.QSize(16777215, 35))
         self.textEdit_45.setObjectName("textEdit_45")
         self.label_26 = QtWidgets.QLabel(self.centralwidget)
-        self.label_26.setGeometry(QtCore.QRect(250, 630, 91, 16))
+        self.label_26.setGeometry(QtCore.QRect(255, 630, 91, 16))
         self.label_26.setObjectName("label_26")
         self.textEdit_axismax_9 = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_axismax_9.setGeometry(QtCore.QRect(680, 650, 61, 25))
@@ -204,10 +204,10 @@ class Ui_MainWindow(object):
         self.textEdit_axismin_12.setMaximumSize(QtCore.QSize(16777215, 35))
         self.textEdit_axismin_12.setObjectName("textEdit_axismin_12")
         self.label_27 = QtWidgets.QLabel(self.centralwidget)
-        self.label_27.setGeometry(QtCore.QRect(420, 550, 111, 20))
+        self.label_27.setGeometry(QtCore.QRect(500, 550, 111, 20))
         self.label_27.setObjectName("label_27")
         self.label_28 = QtWidgets.QLabel(self.centralwidget)
-        self.label_28.setGeometry(QtCore.QRect(130, 520, 91, 16))
+        self.label_28.setGeometry(QtCore.QRect(165, 520, 91, 16))
         self.label_28.setObjectName("label_28")
         self.textEdit_46 = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_46.setGeometry(QtCore.QRect(320, 560, 61, 25))
@@ -265,7 +265,7 @@ class Ui_MainWindow(object):
         self.label_30.setGeometry(QtCore.QRect(1070, 160, 111, 20))
         self.label_30.setObjectName("label_30")
         self.label_31 = QtWidgets.QLabel(self.centralwidget)
-        self.label_31.setGeometry(QtCore.QRect(1190, 160, 51, 20))
+        self.label_31.setGeometry(QtCore.QRect(1200, 160, 51, 20))
         self.label_31.setObjectName("label_31")
         self.textEdit_axismax_25 = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_axismax_25.setGeometry(QtCore.QRect(1070, 40, 161, 25))
@@ -330,7 +330,7 @@ class Ui_MainWindow(object):
         self.textEdit_47.setMaximumSize(QtCore.QSize(16777215, 35))
         self.textEdit_47.setObjectName("textEdit_47")
         self.label_32 = QtWidgets.QLabel(self.centralwidget)
-        self.label_32.setGeometry(QtCore.QRect(350, 630, 91, 16))
+        self.label_32.setGeometry(QtCore.QRect(370, 630, 91, 16))
         self.label_32.setObjectName("label_32")
         self.checkBox_4 = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_4.setGeometry(QtCore.QRect(250, 560, 70, 17))
@@ -563,30 +563,30 @@ class Ui_MainWindow(object):
         self.pushButton_input.setText(_translate("MainWindow", "Plot"))
         self.pushButton_ana.setText(_translate("MainWindow", "Anterior"))
         self.pushButton_plot.setText(_translate("MainWindow", "Próximo"))
-        self.label_14.setText(_translate("MainWindow", "Amortecimento - x"))
-        self.label_15.setText(_translate("MainWindow", "Amortecimento - y"))
+        self.label_14.setText(_translate("MainWindow", "Damping - x"))
+        self.label_15.setText(_translate("MainWindow", "Damping - y"))
         self.label_16.setText(_translate("MainWindow", "Min"))
         self.label_17.setText(_translate("MainWindow", "Max"))
-        self.checkBox.setText(_translate("MainWindow", "Legenda"))
+        self.checkBox.setText(_translate("MainWindow", "Legend"))
         self.label_24.setText(_translate("MainWindow", "Freq ou vel - x"))
-        self.label_25.setText(_translate("MainWindow", "Frequência - y"))
+        self.label_25.setText(_translate("MainWindow", "Frequency - y"))
         self.groupBox.setTitle(_translate("MainWindow", "Plot"))
-        self.checkBox_2.setText(_translate("MainWindow", "Marcadores"))
-        self.label_26.setText(_translate("MainWindow", "Espessura da linha"))
-        self.label_27.setText(_translate("MainWindow", "Mecanismo de número:"))
-        self.label_28.setText(_translate("MainWindow", "Eixos"))
-        self.label_30.setText(_translate("MainWindow", "Nome do arquivo f06"))
-        self.label_31.setText(_translate("MainWindow", "Mecanismo"))
-        self.label_33.setText(_translate("MainWindow", "Nome do arquivo f06"))
-        self.checkBox_3.setText(_translate("MainWindow", "Diferentes arquivos"))
-        self.label_32.setText(_translate("MainWindow", "Tamanho do mark"))
+        self.checkBox_2.setText(_translate("MainWindow", "Markers"))
+        self.label_26.setText(_translate("MainWindow", "Line tickness"))
+        self.label_27.setText(_translate("MainWindow", "Mode:"))
+        self.label_28.setText(_translate("MainWindow", "Axis"))
+        self.label_30.setText(_translate("MainWindow", "Name of f06 file"))
+        self.label_31.setText(_translate("MainWindow", "Mode"))
+        self.label_33.setText(_translate("MainWindow", "Name of f06 file"))
+        self.checkBox_3.setText(_translate("MainWindow", "Multi-files"))
+        self.label_32.setText(_translate("MainWindow", "Mark size"))
         self.checkBox_4.setText(_translate("MainWindow", "Vel cert."))
-        self.checkBox_5.setText(_translate("MainWindow", "fit freqs."))
-        self.checkBox_6.setText(_translate("MainWindow", "Velocidade em keas"))
-        self.checkBox_8.setText(_translate("MainWindow", "Efetividade de comandos"))
+        self.checkBox_5.setText(_translate("MainWindow", "Fit freqs."))
+        self.checkBox_6.setText(_translate("MainWindow", "Keas"))
+        self.checkBox_8.setText(_translate("MainWindow", "Command efficiency"))
         self.checkBox_7.setText(_translate("MainWindow", "f06 by cases"))
-        self.label_29.setText(_translate("MainWindow", "Desenvolvido por: Geraldo Majella N. Junior"))
-        self.label_58.setText(_translate("MainWindow", "Email de contato: thiacene@gmail.com"))
+        self.label_29.setText(_translate("MainWindow", "Developed by: Geraldo Majella N. Junior"))
+        self.label_58.setText(_translate("MainWindow", "Email: thiacene@gmail.com"))
 
 
 
@@ -660,11 +660,11 @@ class Ui_MainWindow(object):
                 eff[i]=eff[i]*100
             self.ax.plot(vel, eff, color ='black', marker='^')
 
-        self.ax.set_title('Eficiência de comandos')
+        self.ax.set_title('Command efficiency')
         self.ax.set_xlim(left=0,right=None)
         self.ax.set_ylim(0,100)
-        self.ax.set_xlabel('Velocidade (m/s)')
-        self.ax.set_ylabel('Eficiência (%)')
+        self.ax.set_xlabel('Velocity (m/s)')
+        self.ax.set_ylabel('Efficiency (%)')
         self.ax.set_xlim(self.freqminX,self.freqmaxX)
 
         if self.velo != 0:
@@ -1221,8 +1221,8 @@ class Ui_MainWindow(object):
                     self.ax.set_position([box1.x0, box1.y0, box1.width * 0.93, box1.height])
 
                 #self.ax.set_xlabel('Velocidade (m/s)')
-                self.ax.set_ylabel('Frequência (Hz)')
-                self.ax.set_title('Diagrama v-g-f')
+                self.ax.set_ylabel('Frequency (Hz)')
+                self.ax.set_title('V-g-f diagram')
                 
                 if self.legend != 0:
                     self.ax.legend(loc='upper left',fontsize = 'small', framealpha =1, bbox_to_anchor=(1.014, 1),fancybox=True)
@@ -1244,10 +1244,10 @@ class Ui_MainWindow(object):
                 if i<1:
                     self.ax2.set_position([box2.x0, box2.y0, box2.width * 0.93, box2.height])
                 if self.keas==0:
-                    self.ax2.set_xlabel('Velocidade (m/s)')
+                    self.ax2.set_xlabel('Velocity (m/s)')
                 else:
-                    self.ax2.set_xlabel('Velocidade (keas)')
-                self.ax2.set_ylabel('Amortecimento')
+                    self.ax2.set_xlabel('Velocity (keas)')
+                self.ax2.set_ylabel('Damping')
             self.fig_canvas.draw()
 
         except:
@@ -1294,17 +1294,17 @@ class Ui_MainWindow(object):
                 else: 
                     pl = self.x
                 if self.keas == 0:
-                    self.ax.plot(self.vel[pl],self.freq[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
+                    self.ax.plot(self.vel[pl],self.freq[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mode'+' '+str(self.x-1)))
                 else:
-                    self.ax.plot(self.vel2[pl],self.freq[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mecanismo'+' '+str(self.x-1)))
+                    self.ax.plot(self.vel2[pl],self.freq[pl],marker=ssymbols, markersize=markk, linewidth=self.tickness,label=('Mode'+' '+str(self.x-1)))
                 self.ax.set_xlim(self.freqminX,self.freqmaxX)
                 self.ax.set_ylim(self.freqminY,self.freqmaxY)
                 if i<1:
                     self.ax.set_position([box1.x0, box1.y0, box1.width * 0.93, box1.height])
 
                 #self.ax.set_xlabel('Velocidade (m/s)')
-                self.ax.set_ylabel('Frequência (Hz)')
-                self.ax.set_title('Diagrama v-g-f')
+                self.ax.set_ylabel('Frequency (Hz)')
+                self.ax.set_title('V-g-f diagram')
                 
                 if self.legend != 0:
                     self.ax.legend(loc='upper left',fontsize = 'small', framealpha =1, bbox_to_anchor=(1.014, 1),fancybox=True)
@@ -1326,10 +1326,10 @@ class Ui_MainWindow(object):
                     self.ax2.set_position([box2.x0, box2.y0, box2.width * 0.93, box2.height])
 
                 if self.keas==0:
-                    self.ax2.set_xlabel('Velocidade (m/s)')
+                    self.ax2.set_xlabel('Velocity (m/s)')
                 else:
-                    self.ax2.set_xlabel('Velocidade (keas)')
-                self.ax2.set_ylabel('Amortecimento')
+                    self.ax2.set_xlabel('Velocity (keas)')
+                self.ax2.set_ylabel('Damping')
                 if g==1: self.x=self.x+1
                 else: pass
 
