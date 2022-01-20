@@ -5,3 +5,4 @@ O mesmo possui a capacidade de analisar e comparar múltiplos arquivos e vários
 
 ![Screenshot](g.PNG)
 
+![Screenshot](h.PNG)
