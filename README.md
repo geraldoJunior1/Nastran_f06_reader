@@ -7,4 +7,4 @@ O mesmo possui a capacidade de analisar e comparar múltiplos arquivos e vários
 
 ![Screenshot](h.PNG)
 
-![Screenshot](g.jpeg)
+![Screenshot](ggg.jpeg)
